@@ -7,14 +7,14 @@ public class Socket : MonoBehaviour
     public Transform snapPosition;
     public string targetTag = "Napkin"; 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // Box Collider's Is Trigger: collect object that trigger
     {
-        if (other.CompareTag(targetTag))
-        {
+        if (other.CompareTag(targetTag))        // Is rigid body is tagged with "Napkin" [Box Co]
+        { 
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.isKinematic = true; // Stop physics movement
+                rb.isKinematic = true;          // Stop physics movement
             }
 
             other.transform.SetPositionAndRotation(
