@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: c62b34b6-3667-42bc-ad83-fa20fb3c6077
+  instanceId: efefb5b5-175b-4a96-b89a-0431a2555abc
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 651c1e09-c705-451d-a3d7-7de1b22195d5
+  instanceId: d8dbd03c-a47d-4dbc-9f96-05a16691d14a
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 9870caec-f50a-40c5-8bfd-1345fb62263e
+  instanceId: 886ce3b7-79e6-415c-953d-a0b25e7cd7db
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 328dd178-2562-4528-95fb-2bdb64aa8c0d
+  instanceId: 33808216-e9d2-44e1-a754-0bbbdb50538a
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: a8d429ba-83a7-4571-bc6d-ac0ac9f0dda5
+  instanceId: 85734f20-4aad-4ac4-9b86-e1b413cbf896
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 53f11f05-e343-4313-a7ce-17a1827f9baa
+  instanceId: ec16ebca-40e4-4751-9de3-2bb56a211f1f
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -2509,7 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 2aa683c7-f32c-466c-8dc6-48ecda6a09fe
+  instanceId: 12c4bd4b-0d6c-4015-aae5-fc9186365b92
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -2650,7 +2650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 85e29a97-d4db-49c4-a4f3-4d11eddd3395
+  instanceId: 16eff5f9-c307-485e-ba04-0bcf0910f051
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -2791,7 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: db635fb5-b556-4b9e-9e16-7ffe1b277ebd
+  instanceId: 6c3c984a-95c7-4fe0-b004-b05afb97658a
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -2816,7 +2816,7 @@ MonoBehaviour:
   _oneGrabTransformer: {fileID: 0}
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 4407475890121565885}
-  _maxGrabPoints: 2
+  _maxGrabPoints: -1
   _rigidbody: {fileID: 2868857986695057048}
   _kinematicWhileSelected: 1
   _throwWhenUnselected: 1
@@ -3455,7 +3455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 1ad73acd-4dec-4f7d-86fc-18ba97dad73a
+  instanceId: a3d74107-1c27-432f-af00-932d4864c0fb
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
