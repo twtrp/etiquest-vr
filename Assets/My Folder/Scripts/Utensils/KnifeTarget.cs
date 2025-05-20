@@ -4,7 +4,6 @@ using EzySlice;
 public class KnifeTarget : MonoBehaviour
 {
     public Material crossSectionMaterial;
-    private float cutForce = 10f;
 
     public void Cut(Vector3 planePosition, Vector3 planeNormal)
     {
@@ -16,25 +15,35 @@ public class KnifeTarget : MonoBehaviour
         GameObject upper = hull.CreateUpperHull(gameObject, crossSectionMaterial);
         GameObject lower = hull.CreateLowerHull(gameObject, crossSectionMaterial);
 
-        InitSlicedPart(upper);
-        InitSlicedPart(lower);
+        string originalName = gameObject.name;
+        if (originalName.EndsWith(" Piece"))
+        {
+            originalName = originalName.Substring(0, originalName.Length - " Piece".Length);
+        }
+
+        string baseName = originalName + " Piece";
+
+        upper.name = baseName;
+        lower.name = baseName;
+
+        InitSlicedPart(upper, baseName);
+        InitSlicedPart(lower, baseName);
 
         Destroy(gameObject);
     }
 
-    private void InitSlicedPart(GameObject part)
+    private void InitSlicedPart(GameObject part, string name)
     {
         part.tag = gameObject.tag;
+        part.name = name;
 
         Rigidbody rb = part.AddComponent<Rigidbody>();
-        rb.AddExplosionForce(cutForce, part.transform.position, 1);
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         MeshCollider col = part.AddComponent<MeshCollider>();
         col.convex = true;
 
         KnifeTarget newCuttable = part.AddComponent<KnifeTarget>();
-        newCuttable.cutForce = cutForce;
         newCuttable.crossSectionMaterial = crossSectionMaterial;
     }
 }

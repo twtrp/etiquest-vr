@@ -149,3 +149,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossSectionMaterial: {fileID: 2100000, guid: e3a20f6ba02ccef4bb6f13c21b9f7be0,
     type: 2}
+  piecesName: Steak Piece
