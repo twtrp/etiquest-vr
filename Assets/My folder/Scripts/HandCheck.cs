@@ -13,14 +13,18 @@ public class HandCheck : MonoBehaviour
 
     void Update()
     {
-        var leftHeld = leftHand.Interactable;
-        var rightHeld = rightHand.Interactable;
+        var leftHeld = leftHand?.Interactable;
+        var rightHeld = rightHand?.Interactable;
 
         bool leftOK = leftHeld != null && leftHeld.gameObject == expectedLeftItem;
         bool rightOK = rightHeld != null && rightHeld.gameObject == expectedRightItem;
 
-        Debug.Log($"leftHeld: {leftHeld}, rightHeld: {rightHeld}");
-        Debug.Log($"leftOK: {leftOK}, rightOK: {rightOK}");
+        if (leftHeld != null || rightHeld != null)
+        {
+            Debug.Log($"Left Held: {(leftHeld != null ? leftHeld.gameObject.name : "None")}");
+            Debug.Log($"Right Held: {(rightHeld != null ? rightHeld.gameObject.name : "None")}");
+            Debug.Log($"Left OK: {leftOK}, Right OK: {rightOK}");
+        }
 
         if (leftOK && rightOK)
         {

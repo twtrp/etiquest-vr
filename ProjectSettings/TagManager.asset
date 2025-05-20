@@ -9,6 +9,7 @@ TagManager:
   - KnifeTarget
   - ForkTarget
   - KnifeAndForkTarget
+  - Spoon
   layers:
   - Default
   - TransparentFX
