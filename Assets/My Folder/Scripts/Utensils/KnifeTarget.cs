@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
 
@@ -10,7 +12,8 @@ public class KnifeTarget : MonoBehaviour
         transform.SetParent(null, true);
 
         SlicedHull hull = gameObject.Slice(planePosition, planeNormal);
-        if (hull == null) return;
+        if (hull == null)
+            return;
 
         GameObject upper = hull.CreateUpperHull(gameObject, crossSectionMaterial);
         GameObject lower = hull.CreateLowerHull(gameObject, crossSectionMaterial);
@@ -32,7 +35,7 @@ public class KnifeTarget : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void InitSlicedPart(GameObject part, string name)
+    void InitSlicedPart(GameObject part, string name)
     {
         part.tag = gameObject.tag;
         part.name = name;

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction;
 using Oculus.Interaction.HandGrab;
@@ -10,7 +12,8 @@ public class ForkTool : MonoBehaviour
 
     private GameObject stuckFood = null;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         if (grabInteractable == null)
             grabInteractable = GetComponent<GrabInteractable>();
@@ -19,17 +22,8 @@ public class ForkTool : MonoBehaviour
             handGrabInteractable = GetComponent<HandGrabInteractable>();
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (stuckFood != null) return;
-
-        if (other.CompareTag("ForkTarget") || other.CompareTag("KnifeAndForkTarget"))
-        {
-            StickFood(other.gameObject);
-        }
-    }
-
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         bool isHeld =
             (grabInteractable != null && grabInteractable.Interactors.Count > 0) ||
@@ -41,7 +35,18 @@ public class ForkTool : MonoBehaviour
         }
     }
 
-    private void StickFood(GameObject food)
+    void OnTriggerStay(Collider other)
+    {
+        if (stuckFood != null)
+            return;
+
+        if (other.CompareTag("ForkTarget") || other.CompareTag("KnifeAndForkTarget"))
+        {
+            StickFood(other.gameObject);
+        }
+    }
+
+    void StickFood(GameObject food)
     {
         stuckFood = food;
 
@@ -53,7 +58,7 @@ public class ForkTool : MonoBehaviour
         food.transform.SetParent(stickPoint, true);
     }
 
-    private void UnstickFood()
+    void UnstickFood()
     {
         if (stuckFood.TryGetComponent(out Rigidbody rb))
         {

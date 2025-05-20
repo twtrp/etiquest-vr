@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction;
 using Oculus.Interaction.HandGrab;
@@ -13,7 +15,8 @@ public class KnifeTool : MonoBehaviour
     private float lastCutTime = -Mathf.Infinity;
     private float cutCooldown = 0.5f; //seconds
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         if (grabInteractable == null)
             grabInteractable = GetComponent<GrabInteractable>();
