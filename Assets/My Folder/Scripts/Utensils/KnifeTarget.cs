@@ -1,16 +1,14 @@
 using UnityEngine;
 using EzySlice;
 
-public class CuttableObject : MonoBehaviour
+public class KnifeTarget : MonoBehaviour
 {
-    public int maxCuts = 3;
-    public int currentCuts = 0;
-    public float cutForce = 5f;
     public Material crossSectionMaterial;
+    private float cutForce = 10f;
 
     public void Cut(Vector3 planePosition, Vector3 planeNormal)
     {
-        if (currentCuts >= maxCuts) return;
+        transform.SetParent(null, true);
 
         SlicedHull hull = gameObject.Slice(planePosition, planeNormal);
         if (hull == null) return;
@@ -18,15 +16,15 @@ public class CuttableObject : MonoBehaviour
         GameObject upper = hull.CreateUpperHull(gameObject, crossSectionMaterial);
         GameObject lower = hull.CreateLowerHull(gameObject, crossSectionMaterial);
 
-        InitSlicedPart(upper, currentCuts + 1);
-        InitSlicedPart(lower, currentCuts + 1);
+        InitSlicedPart(upper);
+        InitSlicedPart(lower);
 
         Destroy(gameObject);
     }
 
-    private void InitSlicedPart(GameObject part, int inheritedCutCount)
+    private void InitSlicedPart(GameObject part)
     {
-        part.layer = gameObject.layer;
+        part.tag = gameObject.tag;
 
         Rigidbody rb = part.AddComponent<Rigidbody>();
         rb.AddExplosionForce(cutForce, part.transform.position, 1);
@@ -35,9 +33,7 @@ public class CuttableObject : MonoBehaviour
         MeshCollider col = part.AddComponent<MeshCollider>();
         col.convex = true;
 
-        CuttableObject newCuttable = part.AddComponent<CuttableObject>();
-        newCuttable.currentCuts = inheritedCutCount;
-        newCuttable.maxCuts = maxCuts;
+        KnifeTarget newCuttable = part.AddComponent<KnifeTarget>();
         newCuttable.cutForce = cutForce;
         newCuttable.crossSectionMaterial = crossSectionMaterial;
     }

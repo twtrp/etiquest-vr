@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8863861860703606666}
   m_Layer: 6
   m_Name: Steak
-  m_TagString: Untagged
+  m_TagString: KnifeAndForkTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,8 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96f3cda0ffcf9b46955eac0e2c1ea49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCuts: 3
-  currentCuts: 0
-  cutForce: 5
   crossSectionMaterial: {fileID: 2100000, guid: e3a20f6ba02ccef4bb6f13c21b9f7be0,
     type: 2}
