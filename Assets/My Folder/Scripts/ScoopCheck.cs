@@ -22,7 +22,7 @@ public class ScoopCheck : MonoBehaviour
 
             if (alignment > 0.7f) 
             {
-                Debug.Log("? Valid scoop — spoon moved away from user in soup zone.");
+                Debug.Log("moving away correct direction");
                 Transform liquid = other.transform.Find("Liquid");
                 if (liquid != null)
                 {
@@ -35,7 +35,7 @@ public class ScoopCheck : MonoBehaviour
             }
             else
             {
-                Debug.Log("? Invalid scoop — wrong direction.");
+                Debug.Log("wrong direction");
                 Transform liquid = other.transform.Find("Liquid");
                 if (liquid != null)
                 {
