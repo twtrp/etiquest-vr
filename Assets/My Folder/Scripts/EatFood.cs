@@ -23,7 +23,7 @@ public class EatFood : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Liquid not found.");
+                Debug.LogWarning("Liquid not found");
             }
         }
     }

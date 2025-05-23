@@ -68,4 +68,17 @@ public class ForkTool : MonoBehaviour
         stuckFood.transform.SetParent(null, true);
         stuckFood = null;
     }
+    public bool HasFoodStuck()
+    {
+        return stuckFood != null;
+    }
+
+    public void EatFood()
+    {
+        if (stuckFood != null)
+        {
+            Destroy(stuckFood);
+            stuckFood = null;
+        }
+    }
 }
