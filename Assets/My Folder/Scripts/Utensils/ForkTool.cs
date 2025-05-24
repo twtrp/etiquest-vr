@@ -81,4 +81,18 @@ public class ForkTool : MonoBehaviour
             stuckFood = null;
         }
     }
+
+    public Vector3 GetStuckFoodSize()
+    {
+        if (stuckFood != null)
+        {
+            Collider foodCollider = stuckFood.GetComponent<Collider>();
+            if (foodCollider != null)
+            {
+                return foodCollider.bounds.size;
+            }
+        }
+
+        return Vector3.zero;
+    }
 }
