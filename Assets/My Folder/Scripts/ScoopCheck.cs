@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoopCheck : MonoBehaviour
 {
-    public Vector3 awayFromUserDirection = new Vector3(0, 0, -1); 
+    public Vector3 awayFromUserDirection; 
 
     private void OnTriggerEnter(Collider other)
     {

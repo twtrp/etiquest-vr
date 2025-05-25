@@ -180,6 +180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Steak
       objectReference: {fileID: 0}
+    - target: {fileID: 7009203091338589240, guid: d542ff003ed9c484f96b230a08264a0a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 8cd4586ebadd1934b84fdbadcc9a8072, type: 3}
     - target: {fileID: 8313726451679462137, guid: d542ff003ed9c484f96b230a08264a0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 1944419692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12025, y: 1.307, z: 0.733}
+  m_LocalPosition: {x: 2.12025, y: 1.307, z: 0.76}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
