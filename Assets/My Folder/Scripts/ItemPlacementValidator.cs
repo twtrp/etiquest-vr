@@ -1,125 +1,89 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using Oculus.Interaction; // for OVRGrabbable
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;              // Is enough if OVRGrabbable is globally available
 
-public class ItemPlacementValidator : MonoBehaviour
-{
-    [Header("Placement Settings")]
-    public Transform target;            // Drag in your LapTarget here [don't let dev redundant drag LapTarget to target]
-    public float snapDistance = 0.05f;  // 5cm snap threshold
-    public bool isTutorialMode = true;  // Leave true for tutorial
+//[RequireComponent(typeof(Rigidbody))]
+//public class ItemPlacementValidator : MonoBehaviour
+//{
+//    public LayerMask snapZoneLayer;
+//    public Transform snapTarget;
+//    public float snapDistance = 0.1f;
+//    public bool isTutorialMode = true;
+//    public RayHighlighter rayHighlighter;
+//    public FeedbackUIManager uiManager;
 
-    [Header("References (set these in Inspector)")]
-    public RayHighlighter rayHighlighter;
-    public FeedbackUIManager uiManager;
+//    private Rigidbody _rb;
+//    private OVRGrabbable _grab;
+//    private bool _insideZone = false;
+//    private bool _hasSnapped = false;
 
-    private OVRGrabbable grabbable;
-    private Rigidbody rb;
-    private bool prevGrabbed = false;
+//    void Awake()
+//    {
+//        _rb = GetComponent<Rigidbody>();
+//        _grab = GetComponentInChildren<OVRGrabbable>();
 
-    void Awake()
-    {
-        grabbable = GetComponent<OVRGrabbable>();
-        rb = GetComponent<Rigidbody>();
+//        if (snapTarget == null) Debug.LogError("Snap Target not assigned!");
+//        if (rayHighlighter == null) Debug.LogError("Missing RayHighlighter.");
+//        if (uiManager == null) Debug.LogError("Missing FeedbackUIManager.");
 
-        // Initialize rayHighlighter with the same target
-        if (rayHighlighter != null)
-            rayHighlighter.SetTarget(target);
-    }
+//        uiManager?.ShowHint("Objective: Put napkin on your lap.");
+//    }
 
-    private void Start()
-    {
-        uiManager.ShowHint("debug");
-    }
+//    void OnTriggerEnter(Collider other)
+//    {
+//        if (_hasSnapped) return;
 
-    void Update()
-    {
-        bool isGrabbed = grabbable.isGrabbed;
+//        if (((1 << other.gameObject.layer) & snapZoneLayer) != 0)
+//        {
+//            _insideZone = true;
+//            if (isTutorialMode) uiManager.ShowHint("Release the napkin to place it.");
+//        }
+//    }
 
-        // 1. Detect grab start
-        if (isTutorialMode && isGrabbed && !prevGrabbed)
-            OnGrabStart();
+//    void OnTriggerExit(Collider other)
+//    {
+//        if (_hasSnapped) return;
 
-        // 2. While held, update feedback
-        if (isGrabbed)
-            OnGrabMove();
+//        if (((1 << other.gameObject.layer) & snapZoneLayer) != 0)
+//        {
+//            _insideZone = false;
+//            if (isTutorialMode)
+//            {
+//                rayHighlighter?.Hide();
+//                uiManager.ShowHint("Put the napkin back on your lap.");
+//            }
+//        }
+//    }
 
-        // 3. Detect grab end
-        if (!isGrabbed && prevGrabbed)
-            OnGrabRelease();
+//    void Update()
+//    {
+//        if (_hasSnapped || _grab == null || !_insideZone) return;
 
-        prevGrabbed = isGrabbed;
-    }
+//        if (_grab.isGrabbed)
+//        {
+//            if (isTutorialMode)
+//            {
+//                float dist = Vector3.Distance(transform.position, snapTarget.position);
+//                Color c = dist < snapDistance ? Color.green : Color.white;
+//                rayHighlighter.DrawRay(transform.position, snapTarget.position, c);
+//                uiManager.ShowHint(dist < snapDistance ? "Almost there—release now!" : "Drag closer to your lap.");
+//            }
+//        }
+//        else
+//        {
+//            // Snap only after release inside the zone
+//            SnapObject();
+//        }
+//    }
 
-    private void OnGrabStart()
-    {
-        // Show the ray guiding to the target
-        if (rayHighlighter != null)
-            rayHighlighter.Show();
-
-        // UI instruction
-        uiManager.ShowHint("Put the napkin on your lap");
-    }
-
-    private void OnGrabMove()
-    {
-        float distance = Vector3.Distance(transform.position, target.position);
-
-        // Near-target preview (twice threshold)
-        if (distance < snapDistance * 2f)
-        {
-            // Glow ray and item green
-            if (rayHighlighter != null) rayHighlighter.SetColor(Color.green);
-            uiManager.ShowHint("Almost there!");
-        }
-        else
-        {
-            if (rayHighlighter != null) rayHighlighter.SetColor(Color.white);
-            uiManager.ShowHint("Put the napkin on your lap");
-        }
-    }
-
-    private void OnGrabRelease()
-    {
-        // Hide the ray
-        if (rayHighlighter != null)
-            rayHighlighter.Hide();
-
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance <= snapDistance)
-        {
-            // Snap into place
-            transform.position = target.position;
-            transform.rotation = target.rotation;
-
-            // Lock physics & grabbing
-            rb.isKinematic = true;
-            grabbable.enabled = false;
-
-            uiManager.ShowSuccess("Napkin placed correctly!");
-        }
-        else
-        {
-            // Shake feedback
-            StartCoroutine(ShakeAndRetry());
-        }
-    }
-
-    System.Collections.IEnumerator ShakeAndRetry()
-    {
-        uiManager.ShowFail("Try again!");
-
-        Vector3 original = transform.position;
-        float elapsed = 0f;
-        while (elapsed < 0.3f)
-        {
-            transform.position = original + Random.insideUnitSphere * 0.01f;
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = original;
-    }
-}
-
+//    void SnapObject()
+//    {
+//        _hasSnapped = true;
+//        _rb.isKinematic = true;
+//        _rb.useGravity = false;
+//        transform.SetPositionAndRotation(snapTarget.position, snapTarget.rotation);
+//        _grab.enabled = false;
+//        rayHighlighter?.Hide();
+//        uiManager?.ShowSuccess("Correct! Napkin placed.");
+//    }
+//}

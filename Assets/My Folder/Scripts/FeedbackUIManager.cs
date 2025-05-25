@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FeedbackUIManager : MonoBehaviour
 {
-    public TextMeshProUGUI hintText;   // assign in Inspector
+    public TextMeshProUGUI hintText;   // assign in Inspector [Text TMP??]
 
     public void ShowHint(string msg)
     {

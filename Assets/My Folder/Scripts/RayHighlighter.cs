@@ -1,66 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-public class RayHighlighter : MonoBehaviour
-{
-    private LineRenderer line;
-    private Transform source;
-    private Transform target;
+//[RequireComponent(typeof(LineRenderer))]
+//public class RayHighlighter : MonoBehaviour
+//{
+//    LineRenderer _line;
 
-    void Awake()
-    {
-        line = GetComponent<LineRenderer>();
-        line.positionCount = 2;
-        line.enabled = false;
-    }
+//    void Awake()
+//    {
+//        _line = GetComponent<LineRenderer>();
+//        _line.positionCount = 2;
+//        _line.enabled = false;
+//        _line.startWidth = _line.endWidth = 0.01f;
+//    }
 
-    /// <summary>
-    /// Call once at startup to tell the ray what to point at. [set this in ItemPlacementValidator for no redundant]
-    /// </summary>
-    public void SetTarget(Transform t)
-    {
-        target = t;
-        source = transform; // assumes this script is on the Napkin
-    }
+//    /// <summary>
+//    /// Immediately draws a single frame ray from A -> B.
+//    /// </summary>
+//    public void DrawRay(Vector3 from, Vector3 to, Color color)
+//    {
+//        if (!_line) return;
+//        _line.enabled = true;
+//        _line.startColor = _line.endColor = color;
+//        _line.SetPosition(0, from);
+//        _line.SetPosition(1, to);
+//    }
 
-    /// <summary>
-    /// Turn on the ray.
-    /// </summary>
-    public void Show()
-    {
-        if (line != null && source != null && target != null)
-            line.enabled = true;
-    }
-
-    /// <summary>
-    /// Turn off the ray.
-    /// </summary>
-    public void Hide()
-    {
-        if (line != null)
-            line.enabled = false;
-    }
-
-    /// <summary>
-    /// Change its color (e.g. green when near).
-    /// </summary>
-    public void SetColor(Color c)
-    {
-        if (line != null)
-        {
-            line.startColor = c;
-            line.endColor = c;
-        }
-    }
-
-    void LateUpdate()
-    {
-        if (line.enabled && source != null && target != null)
-        {
-            line.SetPosition(0, source.position);
-            line.SetPosition(1, target.position);
-        }
-    }
-}
+//    /// <summary>
+//    /// Hides the ray.
+//    /// </summary>
+//    public void Hide()
+//    {
+//        if (_line) _line.enabled = false;
+//    }
+//}
