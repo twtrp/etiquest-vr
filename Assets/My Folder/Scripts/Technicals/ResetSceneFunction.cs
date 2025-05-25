@@ -38,4 +38,28 @@ public class ResetSceneFunction : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void RecenterView()
+    {
+        if (cameraRigRoot == null || centerEyeAnchor == null)
+        {
+            Debug.LogWarning("Camera Rig or CenterEyeAnchor not assigned.");
+            return;
+        }
+
+        Vector3 currentForward = centerEyeAnchor.forward;
+        currentForward.y = 0;
+        currentForward.Normalize();
+
+        Quaternion rotationOffset = Quaternion.FromToRotation(currentForward, initialForward);
+        cameraRigRoot.rotation = rotationOffset * cameraRigRoot.rotation;
+
+        Vector3 currentHeadsetPosition = centerEyeAnchor.position;
+        Vector3 positionOffset = initialHeadsetPosition - currentHeadsetPosition;
+        cameraRigRoot.position += positionOffset;
+
+        savedRigPosition = cameraRigRoot.position;
+        savedRigRotation = cameraRigRoot.rotation;
+        hasSavedTransform = true;
+    }
 }
