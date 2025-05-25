@@ -12,28 +12,21 @@ public class SliceObject : MonoBehaviour
     public Material crossSectionMaterial;
     public float cutForce;
 
+    // Start is called before the first frame update
     void Start()
     {
-        // Optional initialization logic here
+
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
-        RaycastHit hit;
-        bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out hit, sliceableLayer);
-
+        bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
         if (hasHit)
         {
             GameObject target = hit.transform.gameObject;
             Slice(target);
         }
-    }
-
-    public void SetupSlicedComponent(GameObject slicedObject)
-    {
-        Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
-        MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
-        collider.convex = true;
     }
 
     public void Slice(GameObject target)
@@ -47,12 +40,24 @@ public class SliceObject : MonoBehaviour
         if (hull != null)
         {
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
-            SetupSlicedComponent(upperHull);
+            SetUpSlicedComponent(upperHull);
 
             GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
-            SetupSlicedComponent(lowerHull);
+            SetUpSlicedComponent(lowerHull);
 
             Destroy(target);
         }
+    }
+
+    public void SetUpSlicedComponent(GameObject slicedObject)
+    {
+        int SliceableLayer = LayerMask.NameToLayer("Sliceable");
+        //slicedObject.layer = SliceableLayer;
+
+        Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
+        rb.AddExplosionForce(cutForce, slicedObject.transform.position, 1);
+
+        MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
+        collider.convex = true;
     }
 }

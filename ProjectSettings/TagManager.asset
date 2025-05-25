@@ -6,6 +6,11 @@ TagManager:
   tags:
   - SamplesInfoPanel
   - Napkin
+  - KnifeTarget
+  - ForkTarget
+  - KnifeAndForkTarget
+  - Spoon
+  - Controller
   layers:
   - Default
   - TransparentFX
@@ -13,12 +18,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Sliceable
   - 
   - 
   - 
   - 
   - 
+  - SnapZone
   - 
   - 
   - 
