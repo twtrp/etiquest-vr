@@ -518,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 2073306563235944244, guid: b6cebe4c70d72194eb39c1992f044a5f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4161599602016664328, guid: b6cebe4c70d72194eb39c1992f044a5f,
         type: 3}
@@ -841,7 +841,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Utensils
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7566466312676316644, guid: 82839e83252937747a1d3d34457ab837, type: 3}
+    - {fileID: 796487732713014042, guid: 82839e83252937747a1d3d34457ab837, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
