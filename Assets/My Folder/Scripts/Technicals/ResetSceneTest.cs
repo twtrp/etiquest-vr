@@ -22,7 +22,6 @@ public class ResetSceneTest : MonoBehaviour
     {
         if (centerEyeAnchor != null)
         {
-            // Save the initial headset position and facing direction
             initialHeadsetPosition = centerEyeAnchor.position;
 
             initialForward = centerEyeAnchor.forward;
@@ -30,7 +29,6 @@ public class ResetSceneTest : MonoBehaviour
             initialForward.Normalize();
         }
 
-        // Restore camera rig position/rotation if saved from previous scene
         if (hasSavedTransform && cameraRigRoot != null)
         {
             cameraRigRoot.position = savedRigPosition;
@@ -64,21 +62,17 @@ public class ResetSceneTest : MonoBehaviour
             return;
         }
 
-        // Flatten headset forward
         Vector3 currentForward = centerEyeAnchor.forward;
         currentForward.y = 0;
         currentForward.Normalize();
 
-        // Get rotation to align current forward with initial forward
         Quaternion rotationOffset = Quaternion.FromToRotation(currentForward, initialForward);
         cameraRigRoot.rotation = rotationOffset * cameraRigRoot.rotation;
 
-        // Move rig to keep headset at initial position
         Vector3 currentHeadsetPosition = centerEyeAnchor.position;
         Vector3 positionOffset = initialHeadsetPosition - currentHeadsetPosition;
         cameraRigRoot.position += positionOffset;
 
-        // Save this transform for the next scene load
         savedRigPosition = cameraRigRoot.position;
         savedRigRotation = cameraRigRoot.rotation;
         hasSavedTransform = true;
