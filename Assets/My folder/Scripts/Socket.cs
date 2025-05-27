@@ -124,6 +124,6 @@ public class Socket : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("EtiQuest Soup Test Scene (Three)");
     }
 }
