@@ -4,10 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-<<<<<<< HEAD
-  m_Scenes: []
-  m_configObjects: {}
-=======
   m_Scenes:
   - enabled: 1
     path: Assets/My Folder/EtiQuest Main Scene (Tutor).unity
@@ -30,4 +26,3 @@ EditorBuildSettings:
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b5517e0b1abe9ed44862628f0380faa4,
       type: 2}
->>>>>>> 4eec10b97185bda8fc269ce878e621c93d5542a4

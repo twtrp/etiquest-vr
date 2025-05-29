@@ -2707,6 +2707,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 356982260700288894, guid: 9de1cfd12b643cb42afa2df7fbb85814,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 356982260700288894, guid: 9de1cfd12b643cb42afa2df7fbb85814,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 356982260700288894, guid: 9de1cfd12b643cb42afa2df7fbb85814,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 356982260700288894, guid: 9de1cfd12b643cb42afa2df7fbb85814,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2634115620912803299, guid: 9de1cfd12b643cb42afa2df7fbb85814,
         type: 3}
       propertyPath: m_IsActive
@@ -2783,7 +2803,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 489061137236544111, guid: 9de1cfd12b643cb42afa2df7fbb85814, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5789602405336202471, guid: 9de1cfd12b643cb42afa2df7fbb85814,
         type: 3}
