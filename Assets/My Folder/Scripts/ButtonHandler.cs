@@ -8,7 +8,7 @@ public class ButtonHandler : MonoBehaviour
     public UnityEvent onPress;
     private bool buttonPressed = false;
 
-    public OVRInput.Button indexButton = OVRInput.Button.PrimaryIndexTrigger;
+    public OVRInput.Button button;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +28,7 @@ public class ButtonHandler : MonoBehaviour
         if (buttonPressed)
         {
             Debug.Log("Button is being pressed");
-            if (OVRInput.GetDown(indexButton))
+            if (OVRInput.GetDown(button))
             {
                 onPress.Invoke();
                 Debug.Log("Button pressed with index trigger!");

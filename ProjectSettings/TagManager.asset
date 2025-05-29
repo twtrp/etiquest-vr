@@ -11,6 +11,8 @@ TagManager:
   - KnifeAndForkTarget
   - Spoon
   - Controller
+  - WaterGlass
+  - WineGlass
   layers:
   - Default
   - TransparentFX

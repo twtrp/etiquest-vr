@@ -4,5 +4,30 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes: []
   m_configObjects: {}
+=======
+  m_Scenes:
+  - enabled: 1
+    path: Assets/My Folder/EtiQuest Main Scene (Tutor).unity
+    guid: 3a4a5a3cd45ec474180fae7edd438421
+  - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Napkin Scene (Mew).unity
+    guid: 084f649a99a086c4ab6258b9f25ccde2
+  - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Soup Test Scene (Three).unity
+    guid: 9eaf67be602b8a240b453d25589b53ed
+  - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Salad Test Scene (Three).unity
+    guid: 4a6cc882235368a4b86cf91bf4f77587
+  - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Steak Test Scene (Three).unity
+    guid: 246c27711d4a8184da1fbf4d1b1e8549
+  - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Water Scene (Tutor).unity
+    guid: 214d95325047f774ba3dfaebbbc3d44c
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b5517e0b1abe9ed44862628f0380faa4,
+      type: 2}
+>>>>>>> 4eec10b97185bda8fc269ce878e621c93d5542a4
