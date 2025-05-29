@@ -15,6 +15,8 @@ public class Socket : MonoBehaviour
     private Grabbable currentGrabbable;
     private Rigidbody currentRb;
 
+    public GameObject hintPanel;
+
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag(targetTag)) return;                      // Only Napkin interaction
@@ -121,6 +123,7 @@ public class Socket : MonoBehaviour
     {
         if (successPanel != null)
             successPanel.SetActive(true);
+            hintPanel.SetActive(false);
 
         yield return new WaitForSeconds(3f);
 

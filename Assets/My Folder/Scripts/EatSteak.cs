@@ -8,6 +8,8 @@ public class EatSteak : MonoBehaviour
     public GameObject successPanel;
     int ate = 0;
 
+    public GameObject hintPanel;
+
     private void OnTriggerEnter(Collider other)
     {
         ForkTool fork = other.GetComponent<ForkTool>();
@@ -21,17 +23,19 @@ public class EatSteak : MonoBehaviour
                 fork.EatFood();
                 Debug.Log("Yummy");
                 ate++;
-                if (ate >= 2 && SceneManager.GetActiveScene().name == "EtiQuest Salad Test Scene (Three)")
+                if (ate >= 3 && SceneManager.GetActiveScene().name == "EtiQuest Salad Test Scene (Three)")
                 {
                     ate = 0;
                     StartCoroutine(ShowSuccessAndLoadScene());
                 }
-                else if (ate >= 2 && SceneManager.GetActiveScene().name == "EtiQuest Steak Test Scene (Three)")
+                if (ate >= 3 && SceneManager.GetActiveScene().name == "EtiQuest Steak Test Scene (Three)")
                 {
-                    Debug.Log("Congrat");
-                    if (successPanel != null)
-                        successPanel.SetActive(true);
+                    //Debug.Log("Congrat");
+                    //if (successPanel != null)
+                    //    successPanel.SetActive(true);
+                    //ate = 0;
                     ate = 0;
+                    StartCoroutine(ShowSuccessAndLoadScene2());
                 }
             }
             else
@@ -44,13 +48,30 @@ public class EatSteak : MonoBehaviour
             Debug.Log("Food not found");
         }
     }
+
     private IEnumerator ShowSuccessAndLoadScene()
     {
         if (successPanel != null)
+        {
             successPanel.SetActive(true);
+            hintPanel.SetActive(false);
+        }
 
         yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene("EtiQuest Steak Test Scene (Three)");
+    }
+
+    private IEnumerator ShowSuccessAndLoadScene2()
+    {
+        if (successPanel != null)
+        {
+            successPanel.SetActive(true);
+            hintPanel.SetActive(false);
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("EtiQuest Water Scene (Tutor)");
     }
 }

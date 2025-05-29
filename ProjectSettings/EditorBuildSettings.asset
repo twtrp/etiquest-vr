@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Main Scene (Tutor).unity
+    guid: 3a4a5a3cd45ec474180fae7edd438421
+  - enabled: 1
     path: Assets/My Folder/Scenes/EtiQuest Napkin Scene (Mew).unity
     guid: 084f649a99a086c4ab6258b9f25ccde2
   - enabled: 1
@@ -17,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/My Folder/Scenes/EtiQuest Steak Test Scene (Three).unity
     guid: 246c27711d4a8184da1fbf4d1b1e8549
+  - enabled: 1
+    path: Assets/My Folder/Scenes/EtiQuest Water Scene (Tutor).unity
+    guid: 214d95325047f774ba3dfaebbbc3d44c
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b5517e0b1abe9ed44862628f0380faa4,
       type: 2}
