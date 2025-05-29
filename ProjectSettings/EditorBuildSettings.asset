@@ -4,22 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/My Folder/Scenes/Unused/SampleScene.unity
-=======
-    path: Assets/My Folder/Scenes/Legacy/SampleScene.unity
->>>>>>> 137670697a572c305be78cff890994858b24313d
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/My Folder/Scenes/EtiQuest Napkin Scene (Mew).unity
-    guid: 084f649a99a086c4ab6258b9f25ccde2
-  - enabled: 1
-    path: Assets/My Folder/Scenes/EtiQuest Soup Scene (Mew).unity
-    guid: c84e2b0608174274e91d79b66407509e
-  m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f95cfe227d1c94241a362238ad831aaa,
-      type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b5517e0b1abe9ed44862628f0380faa4,
-      type: 2}
+  m_Scenes: []
+  m_configObjects: {}
